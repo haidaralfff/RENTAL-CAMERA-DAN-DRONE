@@ -49,11 +49,26 @@ cd rentcam
 
 ## 📂 Project Structure
 
-- `application/`: Core application logic (MVC).
-- `assets/`: Static files (images, css, js).
-- `system/`: CodeIgniter core files.
-- `prompt/`: Project documentation and plans.
+```text
+rentcam/
+├── application/          # Core logic (MVC)
+│   ├── config/           # Database & App settings
+│   ├── controllers/      # Route handlers
+│   ├── models/           # Database interactions
+│   └── views/            # UI Templates
+├── assets/               # Static files
+│   ├── css/              # Stylesheets
+│   └── uploads/          # User-uploaded images
+├── system/               # CodeIgniter 3 Core
+├── .env                  # Environment configuration
+├── .gitignore            # Git ignore rules
+└── index.php             # Application entry point
+```
 
+- `application/`: Contains the main source code of the application following the MVC pattern.
+- `assets/`: Stores all frontend assets such as CSS, Javascript, and user uploads.
+- `system/`: The core framework files of CodeIgniter 3.
+- `.env`: Configuration file for environment-specific variables like database credentials.
 ## 🔐 Credentials (Default)
 
 - **Super Admin**: admin@rentcam.com / password123
