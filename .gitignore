@@ -1,0 +1,21 @@
+# Ignore compiled/generated folders
+system/
+vendor/
+
+# Ignore uploads (user-generated files)
+assets/uploads/
+
+# Ignore environment config
+.env
+
+# Ignore logs and cache
+application/logs/*
+application/cache/*
+
+# Keep gitkeep files
+!application/logs/.gitkeep
+!application/cache/.gitkeep
+!assets/uploads/.gitkeep
+
+# Ignore project planning and prompts
+prompt/project_plan.md

@@ -1,0 +1,40 @@
+<?php $this->load->view('templates/header'); ?>
+<div class="layout-wrapper">
+    <?php $this->load->view('templates/sidebar'); ?>
+    <div class="main-content">
+        <div class="topbar"><span class="topbar-title">Manajemen Booking</span></div>
+        <div class="page-content">
+            <?php if ($this->session->flashdata('success')): ?>
+            <div class="alert alert-success"><i class="fas fa-check-circle"></i> <?= $this->session->flashdata('success') ?></div>
+            <?php endif; ?>
+            <div class="card">
+                <div class="card-header"><span class="card-title">Daftar Booking (<?= count($bookings) ?>)</span></div>
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr><th>#</th><th>Member</th><th>Mulai</th><th>Selesai</th><th>Total</th><th>Status</th><th>Aksi</th></tr>
+                        </thead>
+                        <tbody>
+                            <?php if (empty($bookings)): ?>
+                            <tr><td colspan="7" class="text-center text-muted" style="padding:36px">Belum ada booking</td></tr>
+                            <?php else: ?>
+                            <?php foreach ($bookings as $i => $b): ?>
+                            <tr>
+                                <td><?= $i+1 ?></td>
+                                <td><strong><?= htmlspecialchars($b->nama_user) ?></strong></td>
+                                <td style="font-size:12px"><?= tgl_indo($b->tanggal_mulai) ?></td>
+                                <td style="font-size:12px"><?= tgl_indo($b->tanggal_selesai) ?></td>
+                                <td class="fw-semibold"><?= rupiah($b->total_harga) ?></td>
+                                <td><span class="badge badge-<?= $b->status ?>"><?= ucfirst($b->status) ?></span></td>
+                                <td><a href="<?= site_url('admin/booking/detail/'.$b->id) ?>" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i> Detail</a></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $this->load->view('templates/footer'); ?>
