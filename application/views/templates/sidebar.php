@@ -50,7 +50,7 @@ $role_label    = $role === 'superadmin' ? 'Super Admin' : ucfirst($role);
     <ul class="sidebar-nav">
         <li>
             <a href="<?= site_url('superadmin') ?>" class="<?= $current === 'superadmin' ? 'active' : '' ?>">
-                <i class="fas fa-chart-line"></i> Dashboard SA
+                <i class="fas fa-chart-line"></i> Dashboard 
             </a>
         </li>
         <li>

@@ -2,18 +2,19 @@
 <?php $this->load->view('templates/navbar'); ?>
 
 <!-- Hero Section -->
-<section class="hero">
-    <div class="hero-content">
+<section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('<?= base_url('assets/picture/hero-bg.jpg') ?>');">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
         <div class="hero-badge"><i class="fas fa-camera"></i> Platform Rental Terpercaya</div>
-        <h1>Sewa <span>Kamera & Drone</span> Profesional</h1>
+        <h1>Sewa <span>Kamera & Drone</span><br>Profesional</h1>
         <p>Dapatkan peralatan foto dan video terbaik untuk setiap momen. Mudah, terpercaya, dan harga terjangkau.</p>
+
         <div class="hero-actions">
             <a href="<?= site_url('produk') ?>" class="btn btn-primary btn-lg">
-                <i class="fas fa-search"></i> Lihat Katalog
+                Lihat Katalog
             </a>
             <?php if (!is_logged_in()): ?>
-            <a href="<?= site_url('register') ?>" class="btn btn-lg" style="background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.3);">
-                <i class="fas fa-user-plus"></i> Daftar Gratis
+            <a href="<?= site_url('register') ?>" class="btn btn-outline-white btn-lg">
+                Daftar Gratis
             </a>
             <?php endif; ?>
         </div>
@@ -23,21 +24,21 @@
 <!-- Features Section -->
 <section style="padding:52px 40px;background:#fff;border-bottom:1px solid #E2E8F0;">
     <div class="grid grid-3" style="max-width:900px;margin:0 auto;gap:32px">
-        <div style="text-align:center;padding:20px">
+        <div style="text-align:center;padding:20px" data-aos="fade-up" data-aos-delay="100">
             <div style="width:56px;height:56px;border-radius:16px;background:#EFF6FF;color:#2563EB;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
                 <i class="fas fa-calendar-check"></i>
             </div>
             <h3 style="font-size:16px;font-weight:700;margin-bottom:8px">Booking Online</h3>
             <p style="font-size:13px;color:#64748B">Pesan kamera atau drone favorit Anda kapan saja, di mana saja.</p>
         </div>
-        <div style="text-align:center;padding:20px">
+        <div style="text-align:center;padding:20px" data-aos="fade-up" data-aos-delay="200">
             <div style="width:56px;height:56px;border-radius:16px;background:#F0FDF4;color:#22C55E;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
                 <i class="fas fa-shield-alt"></i>
             </div>
             <h3 style="font-size:16px;font-weight:700;margin-bottom:8px">Terverifikasi</h3>
             <p style="font-size:13px;color:#64748B">Setiap pembayaran diverifikasi langsung oleh tim admin kami.</p>
         </div>
-        <div style="text-align:center;padding:20px">
+        <div style="text-align:center;padding:20px" data-aos="fade-up" data-aos-delay="300">
             <div style="width:56px;height:56px;border-radius:16px;background:#FFF7ED;color:#F97316;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
                 <i class="fas fa-star"></i>
             </div>
@@ -49,7 +50,7 @@
 
 <!-- Catalog Section -->
 <section class="section" style="background:#F8FAFC">
-    <div class="section-header">
+    <div class="section-header" data-aos="fade-down">
         <h2 class="section-title">Produk Tersedia</h2>
         <p class="section-subtitle">Temukan kamera dan drone terbaik untuk kebutuhan Anda</p>
     </div>
@@ -62,7 +63,7 @@
     <?php else: ?>
     <div class="grid grid-3" style="max-width:1100px;margin:0 auto">
         <?php foreach ($produk_unggulan as $p): ?>
-        <div class="produk-card">
+        <div class="produk-card" data-aos="zoom-in" data-aos-duration="600">
             <div class="produk-card-img">
                 <?php if ($p->foto): ?>
                     <img src="<?= base_url('assets/uploads/produk/' . $p->foto) ?>" alt="<?= htmlspecialchars($p->nama) ?>">
