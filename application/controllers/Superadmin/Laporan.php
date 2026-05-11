@@ -13,12 +13,14 @@ class Laporan extends Superadmin_Controller
     {
         $tahun = $this->input->get('tahun', TRUE) ?? date('Y');
         $data  = [
-            'title'              => 'Laporan — Super Admin RENTCAM',
-            'pendapatan_bulanan' => $this->Laporan_model->get_pendapatan_bulanan($tahun),
-            'produk_terlaris'    => $this->Laporan_model->get_produk_terlaris(10),
-            'total_pendapatan'   => $this->Pembayaran_model->get_total_pendapatan(),
-            'tahun'              => $tahun,
-            'all_bookings'       => $this->Booking_model->get_all(), // Pastikan model Booking diload
+            'title'                 => 'Laporan — Super Admin RENTCAM',
+            'pendapatan_bulanan'    => $this->Laporan_model->get_pendapatan_bulanan($tahun),
+            'produk_terlaris'       => $this->Laporan_model->get_produk_terlaris(10),
+            'total_pendapatan_tahun'=> $this->Pembayaran_model->get_total_pendapatan($tahun),
+            'total_pendapatan_all'  => $this->Pembayaran_model->get_total_pendapatan(),
+            'list_tahun'            => $this->Laporan_model->get_list_tahun(),
+            'tahun'                 => $tahun,
+            'all_bookings'          => $this->Booking_model->get_all(),
         ];
         $this->load->view('superadmin/laporan/index', $data);
     }

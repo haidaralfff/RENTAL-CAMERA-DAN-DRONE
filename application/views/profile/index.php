@@ -50,16 +50,26 @@
                                 <label class="form-label">Alamat Email</label>
                                 <input type="email" name="email" class="form-control" value="<?= set_value('email', $user->email) ?>" required>
                             </div>
-                            <div class="form-group mb-4">
-                                <label class="form-label">Password Baru (kosongkan jika tidak ingin diubah)</label>
-                                <div style="position:relative">
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="Minimal 6 karakter">
-                                    <i class="fas fa-eye password-toggle" data-target="password" style="position:absolute; right:15px; top:50%; transform:translateY(-50%); cursor:pointer; color:#94A3B8;"></i>
+                            <div class="grid grid-2 gap-3">
+                                <div class="form-group mb-4">
+                                    <label class="form-label">Password Baru</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="Kosongkan jika tidak diubah" minlength="6">
+                                        <i class="fas fa-eye password-toggle" data-target="password"></i>
+                                    </div>
+                                    <small class="form-text">Minimal 6 karakter</small>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label class="form-label">Konfirmasi Password Baru</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" name="passconf" id="passconf" class="form-control" placeholder="Ulangi password baru">
+                                        <i class="fas fa-eye password-toggle" data-target="passconf"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <div style="margin-top:30px; display:flex; justify-content:flex-end;">
-                                <button type="submit" class="btn btn-primary" style="padding:12px 30px; border-radius:12px; font-weight:700; box-shadow:0 4px 12px rgba(37,99,235,0.2);">
-                                    Simpan Perubahan
+                            <div style="margin-top:20px; display:flex; justify-content:flex-end;">
+                                <button type="submit" class="btn btn-primary btn-lg" style="border-radius:12px;">
+                                    <i class="fas fa-save" style="margin-right:8px;"></i> Simpan Perubahan
                                 </button>
                             </div>
                             <?= form_close() ?>

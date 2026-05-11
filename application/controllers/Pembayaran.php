@@ -84,12 +84,7 @@ class Pembayaran extends User_Controller
     {
         $this->Booking_model->expire_pending();
         $user = current_user();
-        $this->db->select('pembayaran.*, booking.total_harga, booking.tanggal_mulai, booking.tanggal_selesai, booking.deadline_bayar, booking.status as status_booking');
-        $this->db->from('pembayaran');
-        $this->db->join('booking', 'booking.id = pembayaran.booking_id');
-        $this->db->where('booking.user_id', $user['id']);
-        $this->db->order_by('pembayaran.created_at', 'DESC');
-        $payments = $this->db->get()->result();
+        $payments = $this->Pembayaran_model->get_by_user($user['id']);
 
         $data = [
             'title'    => 'Status Pembayaran — RENTCAM',

@@ -7,7 +7,7 @@ class Booking extends User_Controller
     {
         parent::__construct();
         $this->load->model(['Produk_model', 'Booking_model', 'Booking_detail_model', 'Pembayaran_model']);
-        $this->load->library('form_validation');
+        $this->load->library(['form_validation', 'Upload_config']);
     }
 
     public function index()
@@ -50,76 +50,67 @@ class Booking extends User_Controller
 
             if ($durasi <= 0) {
                 $this->load->view('user/booking/form', [
-                    'produk' => $produk,
-                    'stok_tersedia' => $stok_tersedia,
+                    'produk' => $produk, 'stok_tersedia' => $stok_tersedia,
                     'error'  => 'Tanggal selesai harus lebih besar dari tanggal mulai.',
                 ]);
                 return;
             }
 
-            // Cek ketersediaan berdasarkan qty
-            $reserved_qty   = $this->Booking_model->get_reserved_qty($produk_id, $mulai, $selesai);
-            $stok_tersedia  = max(0, $produk->stok - $reserved_qty);
+            // Cek ketersediaan via Model (Refactored)
+            $stok_tersedia = $this->Booking_model->get_available_stok($produk_id, $mulai, $selesai);
             if ($qty > $stok_tersedia) {
                 $this->load->view('user/booking/form', [
-                    'produk' => $produk,
-                    'stok_tersedia' => $stok_tersedia,
+                    'produk' => $produk, 'stok_tersedia' => $stok_tersedia,
                     'error'  => 'Stok tidak mencukupi pada tanggal tersebut.',
                 ]);
                 return;
             }
 
-            $total = $produk->harga_per_hari * $qty * $durasi;
-            $user  = current_user();
+            $user = current_user();
+            $total_harga = $produk->harga_per_hari * $qty * $durasi;
 
-            // Handle KTP Upload
+            // Handle KTP Upload (Refactored using Library)
             $ktp_filename = null;
             if (!empty($_FILES['ktp']['name'])) {
-                $config['upload_path']   = './assets/uploads/identitas/';
-                $config['allowed_types'] = 'jpg|jpeg|png';
-                $config['max_size']      = 2048;
-                $config['file_name']     = 'ktp_' . time() . '_' . $user['id'];
-
-                if (!is_dir($config['upload_path'])) {
-                    mkdir($config['upload_path'], 0777, true);
-                }
-
-                $this->load->library('upload', $config);
-                if ($this->upload->do_upload('ktp')) {
-                    $ktp_filename = $this->upload->data('file_name');
+                $upload = $this->upload_config->upload_ktp('ktp');
+                if ($upload['status']) {
+                    $ktp_filename = $upload['data'];
                 } else {
                     $this->load->view('user/booking/form', [
-                        'produk' => $produk,
-                        'stok_tersedia' => $stok_tersedia,
-                        'error'  => 'Gagal upload KTP: ' . $this->upload->display_errors('', ''),
+                        'produk' => $produk, 'stok_tersedia' => $stok_tersedia,
+                        'error'  => 'Gagal upload KTP: ' . $upload['data'],
                     ]);
                     return;
                 }
             }
 
-            // Simpan booking
-            $booking_id = $this->Booking_model->create([
+            // Simpan Booking via Model Transaction (Refactored)
+            $booking_data = [
                 'user_id'         => $user['id'],
                 'tanggal_mulai'   => $mulai,
                 'tanggal_selesai' => $selesai,
-                'total_harga'     => $total,
+                'total_harga'     => $total_harga,
                 'phone'           => $this->input->post('phone', TRUE),
                 'alamat'          => $this->input->post('alamat', TRUE),
                 'ktp'             => $ktp_filename,
                 'status'          => 'pending',
-                'deadline_bayar'  => date('Y-m-d H:i:s', strtotime('+1 day')),
-            ]);
+            ];
 
-            // Simpan detail
-            $this->Booking_detail_model->create([
-                'booking_id'  => $booking_id,
-                'produk_id'   => $produk_id,
-                'qty'         => $qty,
-                'harga_satuan'=> $produk->harga_per_hari,
-            ]);
+            $detail_data = [
+                'produk_id'    => $produk_id,
+                'qty'          => $qty,
+                'harga_satuan' => $produk->harga_per_hari,
+            ];
 
-            $this->session->set_flashdata('success', 'Booking berhasil! Silahkan upload bukti pembayaran.');
-            redirect('pembayaran/upload/' . $booking_id);
+            $booking_id = $this->Booking_model->place_booking($booking_data, $detail_data);
+
+            if ($booking_id) {
+                $this->session->set_flashdata('success', 'Booking berhasil! Silahkan upload bukti pembayaran.');
+                redirect('pembayaran/upload/' . $booking_id);
+            } else {
+                $this->session->set_flashdata('error', 'Gagal memproses booking. Silahkan coba lagi.');
+                redirect('booking/form/' . $produk_id);
+            }
         }
 
         $this->load->view('user/booking/form', [

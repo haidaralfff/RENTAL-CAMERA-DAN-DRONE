@@ -68,6 +68,23 @@ class Laporan_model extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function get_list_tahun()
+    {
+        $this->db->select('DISTINCT(YEAR(created_at)) as tahun');
+        $this->db->from('pembayaran');
+        $this->db->where('status', 'verified');
+        $this->db->order_by('tahun', 'DESC');
+        $result = $this->db->get()->result();
+        
+        // Pastikan tahun ini selalu masuk list meskipun belum ada transaksi verified
+        $years = array_column($result, 'tahun');
+        if (!in_array(date('Y'), $years)) {
+            array_unshift($years, date('Y'));
+        }
+        
+        return $years;
+    }
+
     public function get_summary()
     {
         $CI =& get_instance();

@@ -23,7 +23,11 @@ class Profile extends MY_Controller
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
             
             if (!empty($this->input->post('password'))) {
-                $this->form_validation->set_rules('password', 'Password', 'min_length[6]');
+                $this->form_validation->set_rules('password', 'Password Baru', 'min_length[6]');
+                $this->form_validation->set_rules('passconf', 'Konfirmasi Password Baru', 'required|matches[password]', [
+                    'matches'  => 'Konfirmasi password tidak cocok.',
+                    'required' => 'Konfirmasi password harus diisi.'
+                ]);
             }
 
             if ($this->form_validation->run() === TRUE) {
@@ -37,7 +41,7 @@ class Profile extends MY_Controller
                 }
 
                 if ($this->User_model->email_exists($data['email'], $id)) {
-                    $this->session->set_flashdata('error', 'Email sudah digunakan.');
+                    $this->session->set_flashdata('error', 'Email sudah digunakan oleh pengguna lain.');
                 } else {
                     $this->User_model->update($id, $data);
                     $this->session->set_userdata('nama', $data['nama']);

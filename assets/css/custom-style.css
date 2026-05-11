@@ -1,0 +1,179 @@
+/**
+ * RENTCAM Design System (External CSS)
+ * ---------------------------------------------------------
+ * Created to replace inline styles and ensure consistency.
+ */
+
+:root {
+    --primary: #2563EB;
+    --primary-dark: #1D4ED8;
+    --primary-light: #EFF6FF;
+    --success: #22C55E;
+    --danger: #DC2626;
+    --warning: #FBBF24;
+    --slate-50: #F8FAFC;
+    --slate-100: #F1F5F9;
+    --slate-200: #E2E8F0;
+    --slate-400: #94A3B8;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1E293B;
+    --slate-900: #0F172A;
+}
+
+/* 1. Premium Cards */
+.card-premium {
+    border: none !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    background: #fff;
+}
+
+.card-premium .card-header {
+    background: transparent;
+    border-bottom: 1px solid var(--slate-100);
+    padding: 20px 24px;
+}
+
+.card-premium .card-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--slate-800);
+    font-size: 16px;
+}
+
+/* 2. Modern Tables */
+.table-modern {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.table-modern thead tr {
+    background: var(--slate-50);
+}
+
+.table-modern th {
+    padding: 16px 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--slate-400);
+    font-size: 13px;
+    border-bottom: 1px solid var(--slate-100);
+    text-align: left;
+}
+
+.table-modern td {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--slate-100);
+    transition: all 0.2s ease;
+}
+
+.table-modern tr:hover td {
+    background: var(--slate-50);
+}
+
+/* 3. Badges & Ranks */
+.rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 12px;
+}
+
+.rank-1 { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+.rank-2 { background: #e2e8f0; color: #475569; border: 1px solid #cbd5e1; }
+.rank-3 { background: #ffedd5; color: #9a3412; border: 1px solid #fed7aa; }
+
+/* 4. Footer Styling */
+.footer-main {
+    background: var(--slate-900);
+    color: #fff;
+}
+
+.footer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    text-align: left;
+    padding: 20px 0 40px;
+}
+
+.footer-map-box {
+    margin-top: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+    filter: grayscale(0.8) opacity(0.7);
+}
+
+.footer-map-box:hover {
+    filter: grayscale(0) opacity(1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2);
+}
+
+/* 5. Info Row (Detail Page) */
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.info-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 12px;
+}
+
+.info-label {
+    font-size: 11px;
+    color: var(--slate-400);
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--slate-900);
+    font-size: 14px;
+}
+
+/* 6. Password Toggle Styling */
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--slate-400);
+    transition: all 0.2s ease;
+    z-index: 5;
+    padding: 5px;
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+}

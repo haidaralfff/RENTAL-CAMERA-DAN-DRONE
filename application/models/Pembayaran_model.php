@@ -20,6 +20,16 @@ class Pembayaran_model extends CI_Model
         return $this->db->get_where($this->table, ['booking_id' => $booking_id])->row();
     }
 
+    public function get_by_user($user_id)
+    {
+        $this->db->select('pembayaran.*, booking.total_harga, booking.tanggal_mulai, booking.tanggal_selesai, booking.deadline_bayar, booking.status as status_booking');
+        $this->db->from($this->table);
+        $this->db->join('booking', 'booking.id = pembayaran.booking_id');
+        $this->db->where('booking.user_id', $user_id);
+        $this->db->order_by('pembayaran.created_at', 'DESC');
+        return $this->db->get()->result();
+    }
+
     public function get_by_id($id)
     {
         $this->db->select('pembayaran.*, booking.user_id, booking.total_harga, booking.tanggal_mulai, booking.tanggal_selesai, users.nama as nama_user, users.email');
@@ -56,12 +66,15 @@ class Pembayaran_model extends CI_Model
         return $this->db->where('status', $status)->count_all_results($this->table);
     }
 
-    public function get_total_pendapatan()
+    public function get_total_pendapatan($tahun = null)
     {
         $this->db->select_sum('booking.total_harga', 'total');
         $this->db->from($this->table);
         $this->db->join('booking', 'booking.id = pembayaran.booking_id');
         $this->db->where('pembayaran.status', 'verified');
+        if ($tahun) {
+            $this->db->where('YEAR(pembayaran.created_at)', $tahun);
+        }
         $result = $this->db->get()->row();
         return $result ? (int)$result->total : 0;
     }

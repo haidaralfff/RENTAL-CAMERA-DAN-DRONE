@@ -33,6 +33,7 @@ if (!function_exists('hitung_durasi')) {
         $mulai   = new DateTime($tanggal_mulai);
         $selesai = new DateTime($tanggal_selesai);
         $diff    = $mulai->diff($selesai);
-        return $diff->days;
+        
+        return ($diff->days == 0) ? 1 : $diff->days;
     }
 }

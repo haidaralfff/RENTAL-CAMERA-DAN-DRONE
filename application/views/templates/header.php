@@ -29,5 +29,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Main CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+    <!-- Custom Refactored Styles -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/custom-style.css') ?>">
 </head>
 <body>

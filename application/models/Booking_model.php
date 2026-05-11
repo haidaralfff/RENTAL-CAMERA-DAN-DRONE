@@ -111,6 +111,42 @@ class Booking_model extends CI_Model
         return $this->db->update($this->table, ['status' => $status]);
     }
 
+    /**
+     * Hitung stok yang benar-benar tersedia setelah dikurangi booking yang sedang aktif.
+     */
+    public function get_available_stok($produk_id, $tanggal_mulai, $tanggal_selesai)
+    {
+        $this->load->model('Produk_model');
+        $produk = $this->Produk_model->get_by_id($produk_id);
+        if (!$produk) return 0;
+
+        $reserved = $this->get_reserved_qty($produk_id, $tanggal_mulai, $tanggal_selesai);
+        return max(0, $produk->stok - $reserved);
+    }
+
+    /**
+     * Menyimpan booking dan detail dalam satu transaksi (Atomic).
+     */
+    public function place_booking($booking_data, $detail_data)
+    {
+        $this->db->trans_start();
+
+        // 1. Insert Header
+        if (empty($booking_data['deadline_bayar'])) {
+            $booking_data['deadline_bayar'] = date('Y-m-d H:i:s', strtotime('+1 day'));
+        }
+        $this->db->insert($this->table, $booking_data);
+        $booking_id = $this->db->insert_id();
+
+        // 2. Insert Detail
+        $detail_data['booking_id'] = $booking_id;
+        $this->db->insert('booking_detail', $detail_data);
+
+        $this->db->trans_complete();
+
+        return ($this->db->trans_status() === FALSE) ? false : $booking_id;
+    }
+
     public function count_all()
     {
         return $this->db->count_all($this->table);
