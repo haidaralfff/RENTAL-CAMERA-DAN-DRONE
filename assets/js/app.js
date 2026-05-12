@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     reverseButtons: true,
                     customClass: {
                         popup: 'swal2-premium-popup',
-                        confirmButton: 'btn btn-primary',
-                        cancelButton: 'btn btn-danger'
+                        confirmButton: 'btn btn-danger',
+                        cancelButton: 'btn btn-outline'
                     },
                     buttonsStyling: false,
                     backdrop: `rgba(15, 23, 42, 0.5) blur(4px)`

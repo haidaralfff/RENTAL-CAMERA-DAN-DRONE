@@ -3,10 +3,15 @@
 
 <div class="container-responsive" style="padding: 20px 20px 60px; max-width: 1100px; margin: 0 auto">
     <!-- Header -->
-    <div class="katalog-header" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; flex-wrap:wrap; gap:16px">
-        <div style="flex: 1; min-width: 250px;">
-            <h1 style="font-size:24px; font-weight:800; margin-bottom: 4px;">Katalog Produk</h1>
-            <p style="color:#64748B; font-size:14px">Temukan kamera & drone yang tepat untuk Anda</p>
+    <div class="katalog-header" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:40px; flex-wrap:wrap; gap:20px; padding-bottom: 20px; border-bottom: 1px solid rgba(15, 23, 42, 0.05);">
+        <div style="flex: 1; min-width: 280px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                <div style="width:36px; height:36px; background:rgba(37, 99, 235, 0.08); color:#2563EB; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:16px;">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h1 style="font-family:'Poppins', sans-serif; font-size:28px; font-weight:800; color:#0F172A; margin:0; letter-spacing:-0.5px;">Katalog <span style="background: linear-gradient(135deg, #60A5FA, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Produk</span></h1>
+            </div>
+            <p style="color:#64748B; font-size:15px; margin:0">Temukan kamera & drone yang tepat untuk Anda</p>
         </div>
         <!-- Filter -->
         <div class="katalog-filter" style="width: 100%; max-width: 450px;">

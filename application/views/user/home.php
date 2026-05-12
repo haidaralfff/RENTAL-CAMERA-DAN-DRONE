@@ -10,39 +10,51 @@
 
         <div class="hero-actions">
             <a href="<?= site_url('produk') ?>" class="btn btn-primary btn-lg">
-                Lihat Katalog
+                <i class="fas fa-th-list" style="margin-right:8px;"></i> Lihat Katalog
             </a>
         </div>
     </div>
 </section>
 
 <!-- Features Section -->
-<section style="padding:80px 20px; background:#F8FAFC; border-bottom:1px solid #E2E8F0;">
-    <div class="section-header" data-aos="fade-down">
-        <h2 class="section-title" style="font-family:'Poppins', sans-serif;">Keunggulan <span style="background: linear-gradient(135deg, #60A5FA, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">RENTCAM</span></h2>
-        <p class="section-subtitle">Kemudahan dan keamanan dalam setiap langkah penyewaan Anda</p>
+<section style="padding:100px 20px; background: #fff; position:relative; overflow:hidden;">
+    <!-- Dekorasi Latar Belakang -->
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.02) 0%, transparent 70%); pointer-events:none;"></div>
+    
+    <div class="section-header" data-aos="fade-down" style="margin-bottom:60px">
+        <h2 class="section-title" style="font-family:'Poppins', sans-serif; font-size:32px; font-weight:800; letter-spacing:-1px;">Mengapa Harus <span style="background: linear-gradient(135deg, #60A5FA, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">RENTCAM</span>?</h2>
+        <p class="section-subtitle">Solusi rental terbaik dengan standar pelayanan kelas dunia</p>
     </div>
-    <div class="grid grid-3" style="max-width:1000px; margin:0 auto; gap:20px">
-        <div class="card feature-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-icon-box" style="background:rgba(37, 99, 235, 0.08); color:#2563EB; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);">
-                <i class="fas fa-calendar-check"></i>
+
+    <div class="grid grid-3" style="max-width:1100px; margin:0 auto; gap:30px; position:relative; z-index:2;">
+        <!-- Card 1 -->
+        <div class="card" data-aos="fade-up" data-aos-delay="100" style="padding:45px 30px; border-radius:24px; border:1px solid rgba(226, 232, 240, 0.8); background:#fff; box-shadow: 0 10px 40px rgba(0,0,0,0.03); transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-align:center; cursor:default;" onmouseover="this.style.transform='translateY(-15px)'; this.style.boxShadow='0 25px 50px rgba(37, 99, 235, 0.1)'; this.style.borderColor='rgba(37, 99, 235, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.03)'; this.style.borderColor='rgba(226, 232, 240, 0.8)';">
+            <div style="width:70px; height:70px; border-radius:20px; background:linear-gradient(135deg, #EFF6FF, #DBEAFE); color:#2563EB; font-size:28px; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; position:relative; overflow:hidden;">
+                <div style="position:absolute; width:100%; height:100%; background:radial-gradient(circle at center, rgba(37, 99, 235, 0.2), transparent); top:0; left:0;"></div>
+                <i class="fas fa-calendar-check" style="position:relative; z-index:2"></i>
             </div>
-            <h3>Booking Online</h3>
-            <p>Pesan kamera atau drone favorit Anda kapan saja dan di mana saja dengan sistem real-time.</p>
+            <h3 style="font-family:'Poppins', sans-serif; font-size:20px; font-weight:800; margin-bottom:12px; color:#0F172A">Booking Online</h3>
+            <p style="font-size:14px; color:#64748B; line-height:1.7">Pesan unit favorit Anda kapan saja dan di mana saja dengan sistem inventori real-time kami.</p>
         </div>
-        <div class="card feature-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-icon-box" style="background:rgba(34, 197, 94, 0.08); color:#22C55E; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.1);">
-                <i class="fas fa-shield-alt"></i>
+
+        <!-- Card 2 -->
+        <div class="card" data-aos="fade-up" data-aos-delay="200" style="padding:45px 30px; border-radius:24px; border:1px solid rgba(226, 232, 240, 0.8); background:#fff; box-shadow: 0 10px 40px rgba(0,0,0,0.03); transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-align:center; cursor:default;" onmouseover="this.style.transform='translateY(-15px)'; this.style.boxShadow='0 25px 50px rgba(34, 197, 94, 0.1)'; this.style.borderColor='rgba(34, 197, 94, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.03)'; this.style.borderColor='rgba(226, 232, 240, 0.8)';">
+            <div style="width:70px; height:70px; border-radius:20px; background:linear-gradient(135deg, #F0FDF4, #DCFCE7); color:#22C55E; font-size:28px; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; position:relative; overflow:hidden;">
+                <div style="position:absolute; width:100%; height:100%; background:radial-gradient(circle at center, rgba(34, 197, 94, 0.2), transparent); top:0; left:0;"></div>
+                <i class="fas fa-shield-alt" style="position:relative; z-index:2"></i>
             </div>
-            <h3>Terverifikasi</h3>
-            <p>Setiap pembayaran dan data penyewa diverifikasi langsung untuk keamanan transaksi Anda.</p>
+            <h3 style="font-family:'Poppins', sans-serif; font-size:20px; font-weight:800; margin-bottom:12px; color:#0F172A">Terverifikasi</h3>
+            <p style="font-size:14px; color:#64748B; line-height:1.7">Setiap pembayaran dan data penyewa divalidasi langsung untuk menjamin keamanan setiap transaksi.</p>
         </div>
-        <div class="card feature-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-icon-box" style="background:rgba(249, 115, 22, 0.08); color:#F97316; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.1);">
-                <i class="fas fa-star"></i>
+
+        <!-- Card 3 -->
+        <div class="card" data-aos="fade-up" data-aos-delay="300" style="padding:45px 30px; border-radius:24px; border:1px solid rgba(226, 232, 240, 0.8); background:#fff; box-shadow: 0 10px 40px rgba(0,0,0,0.03); transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-align:center; cursor:default;" onmouseover="this.style.transform='translateY(-15px)'; this.style.boxShadow='0 25px 50px rgba(249, 115, 22, 0.1)'; this.style.borderColor='rgba(249, 115, 22, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.03)'; this.style.borderColor='rgba(226, 232, 240, 0.8)';">
+            <div style="width:70px; height:70px; border-radius:20px; background:linear-gradient(135deg, #FFF7ED, #FFEDD5); color:#F97316; font-size:28px; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; position:relative; overflow:hidden;">
+                <div style="position:absolute; width:100%; height:100%; background:radial-gradient(circle at center, rgba(249, 115, 22, 0.2), transparent); top:0; left:0;"></div>
+                <i class="fas fa-star" style="position:relative; z-index:2"></i>
             </div>
-            <h3>Berikan Review</h3>
-            <p>Bagikan pengalaman seru Anda dan berikan rating untuk membantu penyewa lainnya.</p>
+            <h3 style="font-family:'Poppins', sans-serif; font-size:20px; font-weight:800; margin-bottom:12px; color:#0F172A">Review Komunitas</h3>
+            <p style="font-size:14px; color:#64748B; line-height:1.7">Berikan rating dan bagikan pengalaman Anda untuk membangun ekosistem rental yang terpercaya.</p>
         </div>
     </div>
 </section>
@@ -93,10 +105,14 @@
 </section>
 </section>
 <!-- Catalog Section -->
-<section class="section" style="background:#F8FAFC">
-    <div class="section-header" data-aos="fade-down">
-        <h2 class="section-title" style="font-family:'Poppins', sans-serif;">Produk <span style="background: linear-gradient(135deg, #60A5FA, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Tersedia</span></h2>
-        <p class="section-subtitle">Temukan kamera dan drone terbaik untuk kebutuhan Anda</p>
+<section class="section" style="background:#F8FAFC; padding:100px 20px;">
+    <div class="section-header" data-aos="fade-down" style="text-align:center; margin-bottom:60px;">
+        <div style="width:50px; height:50px; background:rgba(37, 99, 235, 0.05); color:#2563EB; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:22px;">
+            <i class="fas fa-camera-retro"></i>
+        </div>
+        <h2 style="font-family:'Poppins', sans-serif; font-size:36px; font-weight:800; color:#0F172A; margin-bottom:12px; letter-spacing:-1px;">Katalog <span style="background: linear-gradient(135deg, #60A5FA, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Produk</span></h2>
+        <p style="font-size:16px; color:#64748B; max-width:600px; margin:0 auto; line-height:1.6;">Temukan koleksi kamera & drone profesional terbaik yang siap mendukung setiap karya kreatif Anda.</p>
+        <div style="width:60px; height:4px; background:linear-gradient(90deg, #2563EB, #60A5FA); margin:20px auto 0; border-radius:2px;"></div>
     </div>
 
     <?php if (empty($produk_unggulan)): ?>

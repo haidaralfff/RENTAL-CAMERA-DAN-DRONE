@@ -21,26 +21,28 @@
             <?php if (is_logged_in()):
                 $cu = current_user();
             ?>
-                <div class="d-flex align-center gap-2">
+                <div class="user-profile-nav">
                     <?php 
                     $role = normalize_role($cu['role']);
                     if ($role === 'admin' || $role === 'superadmin'): 
                     ?>
-                    <a href="<?= site_url($role) ?>" class="btn btn-primary btn-sm" style="background:#2563EB; border:none; padding:8px 16px;">
+                    <a href="<?= site_url($role) ?>" class="btn btn-primary btn-sm btn-panel">
                         <i class="fas fa-tachometer-alt"></i> PANEL <?= strtoupper($role) ?>
                     </a>
                     <?php endif; ?>
                     
-                    <div class="sidebar-avatar" style="width:34px;height:34px;font-size:13px;background:var(--primary);color:#fff"><?= strtoupper(substr($cu['nama'],0,1)) ?></div>
-                    <span class="user-name" style="font-weight:600;font-size:13px;margin-right:10px;color:#fff"><?= htmlspecialchars($cu['nama']) ?></span>
+                    <div class="user-info">
+                        <div class="sidebar-avatar"><?= strtoupper(substr($cu['nama'],0,1)) ?></div>
+                        <span class="user-name"><?= htmlspecialchars($cu['nama']) ?></span>
+                    </div>
                     
                     <a href="<?= site_url('logout') ?>" class="btn btn-outline-white btn-sm logout-link" title="Logout">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </div>
             <?php else: ?>
-                <a href="<?= site_url('login') ?>" class="btn btn-outline-white" style="padding:9px 20px; font-size:13px; font-weight:600;"><i class="fas fa-sign-in-alt"></i> Login</a>
-                <a href="<?= site_url('register') ?>" class="btn btn-primary" style="padding:9px 20px; font-size:13px; font-weight:600;"><i class="fas fa-user-plus"></i> Daftar</a>
+                <a href="<?= site_url('login') ?>" class="btn btn-outline-white btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="<?= site_url('register') ?>" class="btn btn-primary btn-register"><i class="fas fa-user-plus"></i> Daftar</a>
             <?php endif; ?>
         </div>
     </div>

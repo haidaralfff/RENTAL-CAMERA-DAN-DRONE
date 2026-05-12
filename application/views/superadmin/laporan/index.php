@@ -7,16 +7,19 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <span class="card-title">Pendapatan Tahun <?= $tahun ?></span>
-                    <?= form_open('superadmin/laporan', 'method="get"') ?>
                     <div class="d-flex gap-2">
-                        <select name="tahun" class="form-control form-select" style="width:120px">
-                            <?php foreach ($list_tahun as $y): ?>
-                            <option value="<?= $y ?>" <?= $tahun == $y ? 'selected' : '' ?>><?= $y ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-filter"></i></button>
+                        <a href="<?= site_url('superadmin/laporan/export') ?>" class="btn btn-outline btn-sm" style="color: #16a34a; border-color: #bbf7d0; background: #f0fdf4;">
+                            <i class="fas fa-file-excel" style="margin-right: 4px;"></i> Export ke Sheets
+                        </a>
+                        <?= form_open('superadmin/laporan', 'method="get", class="d-flex gap-2"') ?>
+                            <select name="tahun" class="form-control form-select" style="width:120px">
+                                <?php foreach ($list_tahun as $y): ?>
+                                <option value="<?= $y ?>" <?= $tahun == $y ? 'selected' : '' ?>><?= $y ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-filter"></i></button>
+                        <?= form_close() ?>
                     </div>
-                    <?= form_close() ?>
                 </div>
                 <div class="card-body">
                     <div class="grid grid-2 mb-4">

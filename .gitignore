@@ -19,3 +19,7 @@ application/cache/*
 
 # Ignore project planning and prompts
 prompt/project_plan.md
+
+# Ignore large assets
+assets/mockup/
+assets/picture/

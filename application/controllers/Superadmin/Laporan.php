@@ -39,4 +39,47 @@ class Laporan extends Superadmin_Controller
         ];
         $this->load->view('superadmin/laporan/detail', $data);
     }
+
+    public function export()
+    {
+        $this->load->helper('export');
+        $bookings = $this->Booking_model->get_all();
+        $site_name = $this->config->item('site_name');
+        
+        $filename = "Laporan_Keuangan_" . str_replace(' ', '_', $site_name) . "_" . date('Y-m-d') . ".csv";
+        
+        // Definisikan Header Tabel
+        $headers = ['ID Booking', 'Pelanggan', 'Mulai', 'Selesai', 'Total', 'Status'];
+        
+        // Siapkan Data
+        $export_data = [];
+        $total_pendapatan = 0;
+        
+        foreach ($bookings as $b) {
+            $export_data[] = [
+                "#" . $b->id,
+                $b->nama_user,
+                date('d M Y', strtotime($b->tanggal_mulai)),
+                date('d M Y', strtotime($b->tanggal_selesai)),
+                "Rp " . number_format($b->total_harga, 0, ',', '.'),
+                strtoupper($b->status)
+            ];
+            
+            if (in_array($b->status, ['confirmed', 'kembali'])) {
+                $total_pendapatan += $b->total_harga;
+            }
+        }
+        
+        // Metadata Laporan
+        $metadata = [
+            'title'    => "Laporan Keuangan " . $site_name,
+            'subtitle' => "Rekapitulasi seluruh transaksi penyewaan kamera & drone",
+            'footer'   => [
+                ['', '', '', 'TOTAL PENDAPATAN:', "Rp " . number_format($total_pendapatan, 0, ',', '.')]
+            ]
+        ];
+
+        // Eksekusi Helper
+        export_to_excel($filename, $headers, $export_data, $metadata);
+    }
 }

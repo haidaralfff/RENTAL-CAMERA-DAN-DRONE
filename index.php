@@ -59,6 +59,7 @@ if (file_exists('.env')) {
  * SYSTEM ENVIRONMENT
  *---------------------------------------------------------------
  */
+date_default_timezone_set('Asia/Jakarta');
 define('ENVIRONMENT', getenv('ENVIRONMENT') ?: (isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development'));
 
 /*
