@@ -16,8 +16,14 @@
     </div>
 </section>
 
+<!-- Hero to Features Connector (Fixed Style) -->
+<div style="display:flex; flex-direction:column; align-items:center; margin-top:-50px; margin-bottom:20px; position:relative; z-index:100;" data-aos="fade-down" data-aos-duration="1200">
+    <div style="width:2px; height:80px; background:linear-gradient(to bottom, transparent, rgba(255,255,255,0.8) 50%, #2563EB); border-radius:1px;"></div>
+    <div style="width:10px; height:10px; background:#2563EB; border-radius:50%; box-shadow: 0 0 20px #2563EB, 0 0 40px rgba(37, 99, 235, 0.4); margin-top:-5px;"></div>
+</div>
+
 <!-- Features Section -->
-<section style="padding:100px 20px; background: #fff; position:relative; overflow:hidden;">
+<section style="padding:60px 20px 80px; background: #fff; position:relative; overflow:hidden;">
     <!-- Dekorasi Latar Belakang -->
     <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.02) 0%, transparent 70%); pointer-events:none;"></div>
     
@@ -57,9 +63,16 @@
             <p style="font-size:14px; color:#64748B; line-height:1.7">Berikan rating dan bagikan pengalaman Anda untuk membangun ekosistem rental yang terpercaya.</p>
         </div>
     </div>
+    
+    <!-- Connector to How It Works -->
+    <div style="display:flex; flex-direction:column; align-items:center; margin-top:60px; margin-bottom:-40px; position:relative; z-index:10;" data-aos="zoom-in" data-aos-duration="800">
+        <div style="width:2px; height:60px; background:linear-gradient(to bottom, #E2E8F0, #2563EB); border-radius:1px;"></div>
+        <div style="width:12px; height:12px; background:#2563EB; border-radius:50%; box-shadow: 0 0 15px rgba(37, 99, 235, 0.4); margin-top:-5px;"></div>
+    </div>
 </section>
+
 <!-- How It Works Section -->
-<section class="section" style="background:#F8FAFC; position:relative; overflow:hidden;">
+<section class="section" style="background:#F8FAFC; position:relative; overflow:hidden; padding-top:100px;">
     <!-- Background Decor -->
     <div style="position:absolute; top:-100px; right:-100px; width:300px; height:300px; background:rgba(37, 99, 235, 0.03); border-radius:50%;"></div>
     
@@ -76,7 +89,7 @@
         <div class="card" style="text-align:center; padding:40px 24px; position:relative; z-index:2; border:none; background:transparent; box-shadow:none;" data-aos="fade-up" data-aos-delay="100">
             <div style="width:80px; height:80px; border-radius:24px; background:linear-gradient(135deg, #2563EB, #1E3A8A); color:#fff; font-size:30px; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25); position:relative;">
                 <i class="fas fa-search"></i>
-                <span style="position:absolute; -top:12px; -right:12px; width:28px; height:28px; background:#fff; color:var(--primary); border-radius:50%; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; border:3px solid var(--primary); top: -10px; right: -10px; font-family:'Poppins', sans-serif;">1</span>
+                <span style="position:absolute; width:28px; height:28px; background:#fff; color:var(--primary); border-radius:50%; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; border:3px solid var(--primary); top: -10px; right: -10px; font-family:'Poppins', sans-serif;">1</span>
             </div>
             <h4 style="font-family:'Poppins', sans-serif; font-size:20px; font-weight:800; margin-bottom:14px; color:#0F172A">Pilih Alat</h4>
             <p style="font-size:14px; color:#64748B; line-height:1.6">Temukan kamera atau drone yang sesuai dengan kebutuhan project Anda di katalog kami.</p>
@@ -102,13 +115,19 @@
             <p style="font-size:14px; color:#64748B; line-height:1.6">Ambil alat di workshop kami dan mulai abadikan momen luar biasa Anda dengan kualitas pro.</p>
         </div>
     </div>
+    
+    <!-- Connector Visual -->
+    <div style="display:flex; flex-direction:column; align-items:center; margin-top:40px; margin-bottom:-20px; position:relative; z-index:10;" data-aos="fade-down" data-aos-duration="1000">
+        <div style="width:2px; height:60px; background:linear-gradient(to bottom, #E2E8F0, #2563EB); border-radius:1px;"></div>
+        <div style="width:12px; height:12px; background:#2563EB; border-radius:50%; box-shadow: 0 0 15px rgba(37, 99, 235, 0.4); margin-top:-5px;"></div>
+    </div>
 </section>
-</section>
+
 <!-- Catalog Section -->
-<section class="section" style="background:#F8FAFC; padding:100px 20px;">
+<section id="katalog" class="section" style="background:#F8FAFC; padding:80px 20px 100px;">
     <div class="section-header" data-aos="fade-down" style="text-align:center; margin-bottom:60px;">
-        <div style="width:50px; height:50px; background:rgba(37, 99, 235, 0.05); color:#2563EB; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:22px;">
-            <i class="fas fa-camera-retro"></i>
+        <div style="width:50px; height:50px; background:rgba(37, 99, 235, 0.05); color:#2563EB; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:22px; box-shadow: inset 0 0 10px rgba(37, 99, 235, 0.1);">
+            <i class="fas fa-box-open"></i>
         </div>
         <h2 style="font-family:'Poppins', sans-serif; font-size:36px; font-weight:800; color:#0F172A; margin-bottom:12px; letter-spacing:-1px;">Katalog <span style="background: linear-gradient(135deg, #60A5FA, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Produk</span></h2>
         <p style="font-size:16px; color:#64748B; max-width:600px; margin:0 auto; line-height:1.6;">Temukan koleksi kamera & drone profesional terbaik yang siap mendukung setiap karya kreatif Anda.</p>
@@ -153,10 +172,16 @@
         <a href="<?= site_url('produk') ?>" class="btn btn-outline">Lihat Semua Produk <i class="fas fa-arrow-right"></i></a>
     </div>
     <?php endif; ?>
+
+    <!-- Connector Visual Down -->
+    <div style="display:flex; flex-direction:column; align-items:center; margin-top:60px; margin-bottom:-40px; position:relative; z-index:10;" data-aos="zoom-in" data-aos-delay="200">
+        <div style="width:12px; height:12px; background:rgba(37, 99, 235, 0.2); border-radius:50%; margin-bottom:-5px;"></div>
+        <div style="width:2px; height:60px; background:linear-gradient(to bottom, #2563EB, #E2E8F0); border-radius:1px;"></div>
+    </div>
 </section>
 
 <!-- Why Choose Us Section -->
-<section class="section" style="background:#fff;">
+<section class="section" style="background:#fff; padding:100px 20px 60px;">
     <div class="section-header" data-aos="fade-down">
         <h2 class="section-title" style="font-family:'Poppins', sans-serif;">Mengapa Memilih <span style="background: linear-gradient(135deg, #60A5FA, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">RENTCAM</span>?</h2>
         <p class="section-subtitle">Kami memberikan lebih dari sekadar sewa alat</p>
@@ -190,6 +215,12 @@
             <p>Tim kami siap membantu Anda memilih alat yang paling pas untuk kebutuhan karya Anda.</p>
         </div>
     </div>
+
+    <!-- Connector Visual to CTA -->
+    <div style="display:flex; flex-direction:column; align-items:center; margin-top:60px; margin-bottom:-20px; position:relative; z-index:10;" data-aos="fade-down" data-aos-duration="1000">
+        <div style="width:2px; height:60px; background:linear-gradient(to bottom, #E2E8F0, rgba(255,255,255,0.5)); border-radius:1px;"></div>
+        <div style="width:12px; height:12px; border:2px solid rgba(255,255,255,0.5); border-radius:50%; margin-top:-5px;"></div>
+    </div>
 </section>
 
 <!-- Final CTA Section (Social Spotlight) -->
@@ -200,7 +231,7 @@
         
         <div style="display:flex; justify-content:center; gap:24px;">
             <!-- Instagram -->
-            <a href="#" style="width:60px; height:60px; border-radius:50%; background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color:#fff; display:flex; align-items:center; justify-content:center; font-size:28px; transition:transform 0.3s ease; box-shadow: 0 10px 20px rgba(220, 39, 67, 0.2);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+            <a href="#" style="width:60px; height:60px; border-radius:50%; background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color:#fff; display:flex; align-items:center; justify-content:center; font-size:28px; transition:transform 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
                 <i class="fab fa-instagram"></i>
             </a>
             <!-- YouTube -->
@@ -212,7 +243,7 @@
                 <i class="fab fa-tiktok"></i>
             </a>
             <!-- Whatsapp -->
-            <a href="#" style="width:60px; height:60px; border-radius:50%; background:#000000; color:#fff; border: 1px solid rgba(255, 255, 255, 0.2); display:flex; align-items:center; justify-content:center; font-size:28px; transition:transform 0.3s ease; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+            <a href="#" style="width:60px; height:60px; border-radius:50%; background:#25D366; color:#fff; border: 1px solid rgba(255, 255, 255, 0.2); display:flex; align-items:center; justify-content:center; font-size:28px; transition:transform 0.3s ease; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
                 <i class="fab fa-whatsapp"></i> 
             </a>
         </div>

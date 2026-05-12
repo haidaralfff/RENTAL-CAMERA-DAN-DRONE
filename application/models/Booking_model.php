@@ -48,7 +48,7 @@ class Booking_model extends CI_Model
     public function get_by_user($user_id)
     {
         $this->expire_pending();
-        $this->db->select('booking.*, pembayaran.status as status_bayar, review.id as review_id, booking_detail.produk_id, GROUP_CONCAT(produk.nama SEPARATOR ", ") as nama_produk');
+        $this->db->select('booking.*, pembayaran.status as status_bayar, review.id as review_id, booking_detail.produk_id, GROUP_CONCAT(produk.nama SEPARATOR ", ") as nama_produk, GROUP_CONCAT(produk.foto SEPARATOR ", ") as foto_produk');
         $this->db->from($this->table);
         $this->db->join('pembayaran', 'pembayaran.booking_id = booking.id', 'left');
         $this->db->join('booking_detail', 'booking_detail.booking_id = booking.id', 'left');
